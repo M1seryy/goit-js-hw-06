@@ -20,4 +20,9 @@ const createBoxes = (amount) => {
     boxes.append(box);
   }
 };
+
+const destroyBoxes = () =>{
+  boxes.innerHTML = ""
+}
 create.addEventListener("click", () => createBoxes(5));
+destroy.addEventListener("click", () => destroyBoxes());
