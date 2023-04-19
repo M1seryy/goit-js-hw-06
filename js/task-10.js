@@ -1,7 +1,13 @@
 const create = document.querySelector("button[data-create]");
 const destroy = document.querySelector("button[data-destroy]");
 const boxes = document.getElementById("boxes");
-
+const wrap = document.getElementById("controls");
+console.log(wrap.firstElementChild);
+let inputValue = 0;
+wrap.firstElementChild.addEventListener("change", (e) => {
+  inputValue = e.currentTarget.value;
+  console.log(inputValue);
+});
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
@@ -21,8 +27,9 @@ const createBoxes = (amount) => {
   }
 };
 
-const destroyBoxes = () =>{
-  boxes.innerHTML = ""
-}
-create.addEventListener("click", () => createBoxes(5));
+const destroyBoxes = () => {
+  boxes.innerHTML = "";
+};
+
+create.addEventListener("click", () => createBoxes(inputValue));
 destroy.addEventListener("click", () => destroyBoxes());
