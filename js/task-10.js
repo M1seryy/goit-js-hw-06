@@ -14,16 +14,23 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 const createBoxes = (amount) => {
+  let step = wrap.firstElementChild.step;
+  let min = wrap.firstElementChild.min;
+  let max = wrap.firstElementChild.max;
   let width = 30;
   let height = 30;
-  for (let index = 0; index < amount; index++) {
-    const box = document.createElement("div");
-    width += 10;
-    height += 10;
-    box.style.width = width + "px";
-    box.style.height = height + "px";
-    box.style.backgroundColor = getRandomHexColor();
-    boxes.append(box);
+  console.log(min);
+  if (amount >= Number(min) && amount <= Number(max)) {
+    for (let index = 0; index < amount; index +=Number(step)) {
+      const box = document.createElement("div");
+      width += 10;
+      height += 10;
+      box.style.width = width + "px";
+      box.style.height = height + "px";
+      box.style.backgroundColor = getRandomHexColor();
+      boxes.append(box);
+    }
+    wrap.firstElementChild.value = "";
   }
 };
 

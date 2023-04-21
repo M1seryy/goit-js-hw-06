@@ -9,7 +9,7 @@ form.addEventListener("submit", (event) => {
     elements: { email, password },
   } = event.currentTarget;
 
-  if (email.value && password.value == "") {
+  if (email.value.trim() === "" || password.value.trim() === "") {
     alert(`Всі поля повинні бути заповнені`);
   } else {
     userData.email = email.value;
